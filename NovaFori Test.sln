@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovaFori Test", "NovaFori Test\NovaFori Test.csproj", "{39FC9237-0E59-40A3-B858-F493BD1453E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NovaFori Test", "NovaFori Test\NovaFori Test.csproj", "{39FC9237-0E59-40A3-B858-F493BD1453E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{D7E91C61-C21B-4288-B3D6-B812B5C155A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\DataLayer.csproj", "{D7E91C61-C21B-4288-B3D6-B812B5C155A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
