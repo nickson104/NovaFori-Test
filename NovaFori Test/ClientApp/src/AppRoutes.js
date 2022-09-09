@@ -8,7 +8,7 @@ const AppRoutes = [
   },
   {
       path: '/addtask',
-      element: <Task />
+      element: <AddTask />
   }
 ];
 

@@ -26,5 +26,14 @@ namespace DataLayer
                 return context.Tasks.Where(c => c.Type == type).ToList();
             }
         }
+
+        public static bool CreateTask(Task task)
+        {
+            using (var context = new NovaForiDBContext())
+            {
+                context.Tasks.Add(task);
+                return context.SaveChanges() > 1;
+            }
+        }
     }
 }

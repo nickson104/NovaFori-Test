@@ -1,4 +1,5 @@
 ﻿using DataLayer;
+using DataLayer.Enums;
 using DataLayer.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,6 +21,12 @@ namespace NovaFori_Test.Controllers
         public IEnumerable<DataLayer.Models.Task> Get()
         {
             return TaskDataHelper.GetTasks();
+        }
+
+        [HttpPost]
+        public bool CreateTask(string taskContent)
+        {
+            return TaskDataHelper.CreateTask(new DataLayer.Models.Task(taskContent));
         }
     }
 }
