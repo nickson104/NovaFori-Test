@@ -31,8 +31,6 @@ namespace DataLayer.Models
         {
             modelBuilder.Entity<Task>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("Task");
 
                 entity.Property(e => e.Description).HasMaxLength(500);

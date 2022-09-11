@@ -6,35 +6,45 @@ export class AddTask extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { tasks: [], loading: true };
-        const [description, setDescription] = useState("");
-
-        const handleSaveTask = () => {
-            this.SaveTask(description)
-        }
+        this.state = { tasks: [], loading: true, description: "" };
+        this.saveTask = this.saveTask.bind(this);
     }
 
     componentDidMount() {
     }
 
+    setDescription(value) {
+        this.setState({ description: value });
+    }
+
+    async saveTask() {
+        const { description } = this.state;
+        const url = "task/CreateTask";
+        const requestOptions = {
+            method: 'POST',
+            headers: { "Content-Type": 'application/json' },
+            body: JSON.stringify( description )
+        }
+        fetch(url, requestOptions)
+            .then((response) => response.ok)
+            .catch((error) => { alert(error) });
+    }
+
     render() {
         return (
             <div>
-                <form ref={taskForm}>
-                    <label for="taskDescription">Task:</label>
-                    <input id="taskDescription" name="taskDescription" type="text" onChange={(e) => setDescription(e.target.value)}></input>
-                    <input type="button" value="Add Task" onClick={handleSaveTask} />
-                </form>
+                <label for="taskDescription">Task:</label>
+                <input
+                    id="taskDescription"
+                    name="taskDescription"
+                    type="text"
+                    onChange={(e) => this.setDescription(e.target.value)}>
+                </input>
+                <input
+                    type="button"
+                    value="Add Task"
+                    onClick={this.saveTask} />
             </div>
         );
-    }
-
-    async SaveTask(value) {
-        const requestOptions = {
-            method: 'Post',
-            body: { value }
-        }
-        const response = await fetch('task', requestOptions);
-        alert(response);
     }
 }

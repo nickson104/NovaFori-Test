@@ -23,10 +23,12 @@ namespace NovaFori_Test.Controllers
             return TaskDataHelper.GetTasks();
         }
 
+        
         [HttpPost]
-        public bool CreateTask(string taskContent)
+        [Route("CreateTask")]
+        public bool CreateTask([FromBody]string description)
         {
-            return TaskDataHelper.CreateTask(new DataLayer.Models.Task(taskContent));
+            return TaskDataHelper.CreateTask(new DataLayer.Models.Task(description));
         }
     }
 }
