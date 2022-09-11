@@ -35,5 +35,22 @@ namespace DataLayer
                 return context.SaveChanges() > 1;
             }
         }
+
+        public static List<Task> ToggleTaskStatus(int id)
+        {
+            using (var context = new NovaForiDBContext())
+            {
+                var task = context.Tasks.FirstOrDefault(c => c.Id == id);
+                if (task != null)
+                {
+                    task.Type = task.Type == 0 ? 1 : 0;
+                    if (context.SaveChanges() > 1)
+                    {
+                        return GetTasks();
+                    } 
+                }
+                return GetTasks();
+            }
+        }
     }
 }

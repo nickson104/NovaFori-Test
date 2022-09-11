@@ -30,5 +30,12 @@ namespace NovaFori_Test.Controllers
         {
             return TaskDataHelper.CreateTask(new DataLayer.Models.Task(description));
         }
+
+        [HttpPost]
+        [Route("ToggleTaskStatus")]
+        public IEnumerable<DataLayer.Models.Task> ToggleTaskStatus([FromBody] int id)
+        {
+            return TaskDataHelper.ToggleTaskStatus(id);
+        }
     }
 }

@@ -25,9 +25,13 @@ export class AddTask extends Component {
             headers: { "Content-Type": 'application/json' },
             body: JSON.stringify( description )
         }
-        fetch(url, requestOptions)
-            .then((response) => response.ok)
-            .catch((error) => { alert(error) });
+        const response = await fetch(url, requestOptions)
+        if (response.ok) {
+            window.location = '/';
+        }
+        else {
+            alert("Oops! Something went wrong.")
+        }
     }
 
     render() {
@@ -38,11 +42,13 @@ export class AddTask extends Component {
                     id="taskDescription"
                     name="taskDescription"
                     type="text"
+                    style={{ margin: '10px' }}
                     onChange={(e) => this.setDescription(e.target.value)}>
                 </input>
                 <input
                     type="button"
                     value="Add Task"
+                    style={{ margin: '10px' }}
                     onClick={this.saveTask} />
             </div>
         );
